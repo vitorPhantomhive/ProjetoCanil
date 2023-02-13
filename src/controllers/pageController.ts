@@ -16,8 +16,10 @@ export const home = (req: Request, res: Response) =>{
 }
 
 export const dogs = (req:Request, res:Response) =>{
+    let list = Pet.getFromType('dog');
     res.render('pages/page', {
-        menu: createMenuObj('dog'), 
+        menu: createMenuObj('dog'),
+        list,
         banner: {
             title: 'Cachorros',
             background: 'banner_dog.jpg'
@@ -27,7 +29,9 @@ export const dogs = (req:Request, res:Response) =>{
 }
 
 export const cats = (req:Request, res:Response) => {
+    let list = Pet.getFromType('cat');
     res.render('pages/page', {
+        list,
         menu: createMenuObj('cat'), 
         banner: {
             title: 'Gatos',
@@ -38,7 +42,9 @@ export const cats = (req:Request, res:Response) => {
 }
 
 export const fishes = (req:Request, res:Response) =>{
+    let list = Pet.getFromType('fish');
     res.render('pages/page',{
+        list,
         menu: createMenuObj('fish'), 
         banner: {
             title: 'Peixes',
